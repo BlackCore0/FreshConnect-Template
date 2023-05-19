@@ -1,13 +1,11 @@
 package com.mari.freshconnect.dao;
 
-import com.mari.freshconnect.exceptions.EmployeeNotFoundException;
 import com.mari.freshconnect.models.Employee;
 import com.mari.freshconnect.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeDao {

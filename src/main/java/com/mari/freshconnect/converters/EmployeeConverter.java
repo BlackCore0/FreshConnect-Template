@@ -2,9 +2,6 @@ package com.mari.freshconnect.converters;
 
 import com.mari.freshconnect.dto.EmployeeResponse;
 import com.mari.freshconnect.models.Employee;
-
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class EmployeeConverter {
         emps.forEach(
                 e ->empResps.add(convert(e))
         );
-        System.out.println("emps = " + empResps.toString());
+        System.out.println("emps = " + empResps);
         return empResps;
     }
 }
