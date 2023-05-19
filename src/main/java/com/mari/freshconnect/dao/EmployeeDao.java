@@ -47,27 +47,4 @@ public class EmployeeDao {
         return employeeRepository.findAll();
     }
 
-    public Employee getEmployee(long id) throws EmployeeNotFoundException {
-        Optional<Employee> emp = employeeRepository.findById(id);
-        if(!emp.isPresent()){
-            throw new EmployeeNotFoundException("Employee not found: "+ id);
-        }
-        return emp.get();
-    }
-
-    public List<Employee> getAboveFunction(double functId) {
-        return employeeRepository.findByFuncGroupGreaterThan(functId);
-    }
-
-    public Employee addEmployee(Employee emp){
-
-        return employeeRepository.save(emp);
-    }
-
-    public Employee updateEmployee(long id, Employee newEmployee) throws EmployeeNotFoundException {
-
-        newEmployee.setId(id);
-        return employeeRepository.save(newEmployee);
-    }
-
 }

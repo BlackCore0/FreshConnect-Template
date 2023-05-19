@@ -19,19 +19,4 @@ public class EmployeeServices {
         return EmployeeConverter.convert(employeeDao.getAllEmployees());
     }
 
-    public EmployeeResponse getEmployee(long id) throws EmployeeNotFoundException{
-        return EmployeeConverter.convert(employeeDao.getEmployee(id));
-    }
-
-    public EmployeeResponse saveEmployee(Employee emp){
-        return EmployeeConverter.convert(employeeDao.addEmployee(emp));
-    }
-
-    public EmployeeResponse updateEmployee(long id, Employee newEmp) throws EmployeeNotFoundException {
-        return EmployeeConverter.convert(employeeDao.updateEmployee(id, newEmp));
-    }
-
-    public List<EmployeeResponse> getEmployeesAboveFunct(double functId){
-        return EmployeeConverter.convert(employeeDao.getAboveFunction(functId));
-    }
 }

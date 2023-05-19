@@ -40,37 +40,7 @@ public class EmployeeController {
                 HttpStatus.OK
         );
     }
-    @GetMapping(path = "/{id}", produces = "application/json")
-    public ResponseEntity<EmployeeResponse> getEmployee(
-            @PathVariable long id
-    ) throws EmployeeNotFoundException {
-        logger.info("Get employee ID requested: {}", id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Employee", String.valueOf(id));
 
-        return new ResponseEntity<>(
-                employeeServices.getEmployee(id),
-                headers,
-                HttpStatus.OK
-        );
-    }
-
-    @GetMapping(path = "/funct/{funct}",
-            produces = "application/json")
-    public ResponseEntity<List<EmployeeResponse>> getAllEmployeeAboveFunct(
-            @PathVariable double funct
-    ) {
-
-        logger.info("Get employee above funct requested: {}", funct);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Employees", "ALL");
-
-        return new ResponseEntity<>(
-                employeeServices.getEmployeesAboveFunct(funct),
-                headers,
-                HttpStatus.OK
-        );
-    }
 
     @PostMapping(
             path = "/",
@@ -80,11 +50,11 @@ public class EmployeeController {
     public ResponseEntity<EmployeeResponse> addEmployee(
             @RequestBody Employee employee
     ) {
-        EmployeeResponse newEmployee = employeeServices.saveEmployee(employee);
+        EmployeeResponse newEmployee = null;
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Employee", String.valueOf(newEmployee.id()));
+        headers.add("Employee", String.valueOf(2));
         return new ResponseEntity<>(
-                newEmployee,
+                new EmployeeResponse(0,"none"),
                 headers,
                 HttpStatus.CREATED
         );
@@ -104,7 +74,7 @@ public class EmployeeController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Employee", String.valueOf(id));
         return new ResponseEntity<>(
-                employeeServices.updateEmployee(id, employee),
+                new EmployeeResponse(0,"none"),
                 headers,
                 HttpStatus.ACCEPTED
         );

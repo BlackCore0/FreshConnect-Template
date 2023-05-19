@@ -15,12 +15,7 @@ public class EmployeeConverter {
 
         return new EmployeeResponse(
                 e.getId(),
-                e.getFirstName(),
-                e.getLastName(),
-                e.getEmail(),
-                e.getFuncGroup(),
-                e.getDateOfBirth(),
-                Period.between( e.getDateOfBirth(), LocalDate.now()).getYears()
+                e.getFirstName()
         );
     }
     public static List<EmployeeResponse> convert(List<Employee> emps){
